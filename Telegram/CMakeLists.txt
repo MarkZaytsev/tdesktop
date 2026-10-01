@@ -594,6 +594,8 @@ PRIVATE
     core/sandbox.h
     core/shortcuts.cpp
     core/shortcuts.h
+    core/style_overrides.cpp
+    core/style_overrides.h
     core/ui_integration.cpp
     core/ui_integration.h
     core/update_channel.h

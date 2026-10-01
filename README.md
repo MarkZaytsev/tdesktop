@@ -12,6 +12,35 @@ This is the complete source code and the build instructions for the official [Te
 
 The source code is published under GPLv3 with OpenSSL exception, the license is available [here][license].
 
+## Font size and message width settings (bigfont branch)
+
+This branch adds settings that enlarge chat text without scaling the rest of the interface. They are read once at startup from `experimental_options.json` in the `tdata` folder of the profile:
+
+* Linux: `~/.local/share/TelegramDesktop/tdata/experimental_options.json`
+* Windows: `%APPDATA%\Telegram Desktop\tdata\experimental_options.json`
+* macOS: `~/Library/Application Support/Telegram Desktop/tdata/experimental_options.json`
+* With `-workdir <dir>`: `<dir>/tdata/experimental_options.json`
+
+The file is a JSON object; add the keys next to any existing ones and restart the app:
+
+```json
+{
+    "message-font-size": 15,
+    "chat-list-font-size": 14,
+    "message-width-percent": 150
+}
+```
+
+| Key | Meaning | Range |
+| --- | --- | --- |
+| `message-font-size` | Message text size in px at 100% interface scale, also used by the message input field and media captions | 8–40 |
+| `chat-list-font-size` | Chat list name, preview and date size in px at 100% interface scale; also used by the chat header status line and notification popups | 8–40 |
+| `message-width-percent` | Message bubble max width in percent of the default 430px; also widens the centered column of "Adapt layout for wide screens" | 50–400 |
+
+A missing key, `0` or a value outside the range keeps the default (13px text, 430px width). Sizes follow the interface scale. Chat list rows keep their height, so chat list sizes above about 16px look cramped.
+
+The official client shares the same profile and keeps these keys, but drops them if you change an experimental option in it. Never run this build on a profile last used by a newer official version: it cannot read that profile and logs you out.
+
 ## Supported systems
 
 The latest version is available for

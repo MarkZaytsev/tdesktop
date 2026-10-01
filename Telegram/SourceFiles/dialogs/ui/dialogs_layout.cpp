@@ -102,7 +102,7 @@ void PaintRowTopRight(
 		: st::dialogsDateFg);
 	p.drawText(
 		rectForName.left() + rectForName.width() + st::dialogsDateSkip,
-		rectForName.top() + st::semiboldFont->height - st::normalFont->descent,
+		rectForName.top() + st::dialogsNameFont->height - st::normalFont->descent,
 		text);
 }
 
@@ -565,7 +565,7 @@ void PaintRow(
 		nameleft,
 		context.st->nameTop,
 		namewidth,
-		st::semiboldFont->height);
+		st::dialogsNameFont->height);
 
 	const auto promoted = (history && history->useTopPromotion())
 		&& !context.search;
@@ -863,7 +863,7 @@ void PaintRow(
 		sendStateIcon->paint(p, rectForName.topLeft() + QPoint(rectForName.width(), 0), context.width);
 	}
 
-	p.setFont(st::semiboldFont);
+	p.setFont(st::dialogsNameFont);
 	const auto paintPeerBadge = [&](int rowNameWidth) {
 		const auto badgeWidth = rowBadge.drawGetWidth(p, {
 			.peer = from,
@@ -915,12 +915,12 @@ void PaintRow(
 			: (flags & Flag::MyNotes)
 			? tr::lng_my_notes(tr::now)
 			: tr::lng_hidden_author_messages(tr::now);
-		const auto textWidth = st::semiboldFont->width(text);
+		const auto textWidth = st::dialogsNameFont->width(text);
 		if (!context.search && (flags & Flag::VerifyCodes)) {
 			paintPeerBadge(textWidth);
 		}
 		if (textWidth > rectForName.width()) {
-			text = st::semiboldFont->elided(text, rectForName.width());
+			text = st::dialogsNameFont->elided(text, rectForName.width());
 		}
 		p.setPen(context.active
 			? st::dialogsNameFgActive
@@ -975,7 +975,7 @@ void PaintRow(
 				+ badgeWidth
 				+ st::dialogsMuteIconSkip;
 			const auto muteTop = rectForName.top()
-				+ (st::semiboldFont->height - muteIcon.height()) / 2;
+				+ (st::dialogsNameFont->height - muteIcon.height()) / 2;
 			muteIcon.paint(p, muteLeft, muteTop, context.width);
 		}
 	} else if (hiddenSenderInfo) {

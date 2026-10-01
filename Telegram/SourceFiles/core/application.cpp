@@ -28,6 +28,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 #include "core/sandbox.h"
 #include "core/local_url_handlers.h"
 #include "core/launcher.h"
+#include "core/style_overrides.h"
 #include "core/proxy_rotation_manager.h"
 #include "core/ui_integration.h"
 #include "core/version.h"
@@ -338,6 +339,7 @@ void Application::run() {
 	QCoreApplication::instance()->installTranslator(_translator.get());
 
 	style::StartManager(cScale());
+	Core::ApplyStyleOverrides(cScale());
 	Ui::Accessible::Init();
 	Ui::InitTextOptions();
 	Ui::StartCachedCorners();

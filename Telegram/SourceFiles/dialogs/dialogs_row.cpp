@@ -964,7 +964,7 @@ const Ui::Text::String &FakeRow::name() const {
 			: nullptr;
 		const auto peer = from ? from : _item->history()->peer.get();
 		_name.setText(
-			st::semiboldTextStyle,
+			st::dialogsNameStyle,
 			peer->name(),
 			Ui::NameTextOptions());
 	}

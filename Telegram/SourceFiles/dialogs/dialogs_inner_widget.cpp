@@ -1873,11 +1873,11 @@ void InnerWidget::paintPeerSearchResult(
 	if (const auto used = Ui::PaintRightButton(p, context)) {
 		namewidth -= used - st::dialogsUnreadPadding;
 	}
-	QRect rectForName(nameleft, context.st->nameTop, namewidth, st::semiboldFont->height);
+	QRect rectForName(nameleft, context.st->nameTop, namewidth, st::dialogsNameFont->height);
 
 	if (result->name.isEmpty()) {
 		result->name.setText(
-			st::semiboldTextStyle,
+			st::dialogsNameStyle,
 			peer->name(),
 			Ui::NameTextOptions());
 	}

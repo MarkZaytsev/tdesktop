@@ -86,6 +86,8 @@ dialogsRipple: RippleAnimation(defaultRippleAnimation) {
 dialogsTextFont: normalFont;
 dialogsTextStyle: defaultTextStyle;
 dialogsDateFont: font(13px);
+dialogsNameFont: semiboldFont;
+dialogsNameStyle: semiboldTextStyle;
 dialogsDateSkip: 5px;
 
 dialogsRowHeight: 62px;

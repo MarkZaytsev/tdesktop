@@ -333,7 +333,7 @@ const Ui::Text::String &Entry::chatListNameText() const {
 	if (_chatListNameVersion < version) {
 		_chatListNameVersion = version;
 		_chatListNameText.setText(
-			st::semiboldTextStyle,
+			st::dialogsNameStyle,
 			chatListName(),
 			Ui::NameTextOptions());
 	}
